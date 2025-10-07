@@ -4,19 +4,20 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                sh 'npm install'
+                bat 'npm install'
             }
         }
 
         stage('Test') {
             steps {
-                sh 'npm test'
+                bat 'npm test'
             }
         }
 
         stage('Archive') {
             steps {
-                archiveArtifacts artifacts: '**/*.zip', fingerprint: true
+                bat 'powershell Compress-Archive -Path * -DestinationPath build.zip'
+                archiveArtifacts artifacts: 'build.zip', fingerprint: true
             }
         }
     }
