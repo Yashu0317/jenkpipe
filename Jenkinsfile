@@ -4,32 +4,25 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                git 'git 'https://github.com/Yashu0317/Jenkins.git'
-'
-            }
-        }
-
-        stage('Install') {
-            steps {
-                sh 'npm install'
+                git 'https://github.com/Yashu0317/Jenkins.git'
             }
         }
 
         stage('Build') {
             steps {
-                sh 'npm run build || echo "No build script"'
+                sh 'npm install'
             }
         }
 
         stage('Test') {
             steps {
-                sh 'npm test || echo "No test script"'
+                sh 'npm test'
             }
         }
 
         stage('Archive') {
             steps {
-                archiveArtifacts artifacts: '**/*', onlyIfSuccessful: true
+                archiveArtifacts artifacts: '**/*.zip', fingerprint: true
             }
         }
     }
