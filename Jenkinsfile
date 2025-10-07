@@ -2,12 +2,6 @@ pipeline {
     agent any
 
     stages {
-        stage('Checkout') {
-            steps {
-                git 'https://github.com/Yashu0317/Jenkins.git'
-            }
-        }
-
         stage('Build') {
             steps {
                 sh 'npm install'
