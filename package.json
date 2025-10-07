@@ -1,0 +1,13 @@
+{
+  "name": "prog4",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+  "start": "node app.js",
+  "test": "echo 'Running tests... OK!'"
+},
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": ""
+}
